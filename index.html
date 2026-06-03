@@ -1,7 +1,298 @@
-<!doctype html>
-<meta charset=
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --text-main: #2d3748;
+            --text-sub: #718096;
+            --primary: #4a5568;
+            --primary-dark: #2d3748;
+            --accent: #319795;
+            --border: #e2e8f0;
+        }
 
-"utf-8">
-<title>自己紹介</title>
-<h1>自己紹介</h1>
-<p>授業で作成したページです。</p>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            padding-bottom: 60px;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #e2e8f0;
+        }
+
+        /* ナビゲーション */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--primary-dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 14px 18px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        nav a:hover {
+            background-color: var(--primary);
+        }
+
+        /* メインコンテンツ */
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 60px;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            border-bottom: 3px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+            word-wrap: break-word;
+        }
+
+        /* リスト・カードスタイル */
+        ul {
+            list-style-type: none;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #fcfdfd;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: var(--primary-dark);
+        }
+
+        .card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        /* インタラクティブ要素 */
+        .interactive-box {
+            background-color: #edf2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background-color: #287e7c;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        #click-message {
+            margin-top: 12px;
+            font-weight: bold;
+            color: var(--accent);
+            min-height: 24px;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            background-color: var(--border);
+            margin-top: 60px;
+        }
+
+        /* レスポンシブ設計 (スマートフォン向け) */
+        @media (max-width: 600px) {
+            header {
+                padding: 30px 15px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            nav a {
+                padding: 12px 10px;
+                font-size: 0.85rem;
+                flex-grow: 1;
+                text-align: center;
+            }
+            section {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <p>インフォメーションサイエンスを学ぶ学生のポートフォリオ</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#works">Works</a>
+        <a href="#reflection">Reflection</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>はじめまして！</p>
+            <p>大学で情報分野を専攻している者です。</p>
+            <p>大学で学んだ知識を生かして社会に貢献できる人になれるよう日々頑張っています。</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="grid-list">
+                <div class="card">
+                    <h3>プログラミング言語</h3>
+                    <p>PythonやC言語を用いたアルゴリズムの理解や実装に授業で取り組みました。</p>
+                </div>
+                <div class="card">
+                    <h3>実験・システム実習</h3>
+                    <p>1年の頃から取り組んでいますが、現在は、ルーターやサブネット設定、ルーティング設定の実験に取り組んでいます。</p>
+                </div>
+                <div class="card">
+                    <h3>開発ツール・オフィス環境</h3>
+                    <p>VS Code、Git/GitHubを利用したバージョン管理、プログラムの公開手順を学んでいます。本ページも実習の一部です。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="works">
+            <h2>Works</h2>
+            <div class="grid-list">
+                <div class="card">
+                    <h3>Pythonコードを用いたデータ分析</h3>
+                    <p>Pythonコードを用いて、実際のデータの分析とグラフを出力することによるデータの可視化を行いました。</p>
+                </div>
+                <div class="card">
+                    <h3>PC内部の仕組み</h3>
+                    <p>PCの組み立ての実習をすることにより、内部構成の理解を深めることができました。</p>
+                </div>
+                <div class="card">
+                    <h3>論理回路によるカウンタ回路</h3>
+                    <p>論理回路の知識を用いて、基本的なカウンタ回路の設計に取り組みました。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflection">
+            <h2>Reflection</h2>
+            <p>今回のWebサイト公開演習をを終えて、初めは初期設定の時点でつまずいてしまいましたが、少しずつ理解を深めていき、最後にはこのようなページを作成することができました。</p>
+            <p>エラーやミスに対処しながら仕組み理解することにより、システムを開発することに関する基礎知識を少し習得することができたと感じています。</p>
+            
+            <div class="interactive-box">
+                <p>演習成果の確認用カウンター（JavaScript動作確認用）</p>
+                <button class="btn" id="action-btn">確認ボタン</button>
+                <p id="click-message"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('action-btn');
+            const message = document.getElementById('click-message');
+            let count = 0;
+
+            btn.addEventListener('click', () => {
+                count++;
+                message.textContent = `スクリプトは正常に動作しています！ (クリック回数: ${count}回)`;
+            });
+        });
+    </script>
+</body>
+</html>
